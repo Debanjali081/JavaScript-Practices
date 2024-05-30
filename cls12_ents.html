@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+</head>
+<style>
+    .container {
+        background-color: black;
+        border: 2px solid black;
+        padding: 34px;
+        margin: 34px;
+        cursor: pointer;
+    }
+
+    .childContainer {
+        background-color: antiquewhite;
+        border: 2px solid black;
+        padding: 34px;
+        margin: 34px;
+        cursor: pointer;
+    }
+
+    .child {
+        background-color: rgb(73, 107, 137);
+        border: 2px solid black;
+        padding: 34px;
+        margin: 34px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <span class="childContainer">
+            <div class="child">
+                I am a child
+            </div>
+        </span>
+    </div>
+
+    <script>
+        document.querySelector(".child").addEventListener("click", () => {
+            e.stopPropagation()
+            alert("child was clicked")
+
+        })
+
+        document.querySelector(".childContainer").addEventListener("click", () => {
+            alert("childContainer was clicked")
+
+        })
+
+        document.querySelector(".container").addEventListener("click", () => {
+            alert("container was clicked")
+
+        })
+    </script>
+    <!-- <button id="btn">Change Content </button> -->
+
+    <!-- <script src="cls12_evnts.js"></script> -->
+</body>
+
+</html>
